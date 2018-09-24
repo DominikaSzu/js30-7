@@ -35,11 +35,7 @@ console.log(result2);
 // Find is like filter, but instead returns just the one you are looking for
 // find the comment with the ID of 823423
 
-const result3 = comments.find(comment => {
-    if (comment.id === 823423) {
-        return comment;
-    }
-});
+const result3 = comments.find(comment => comment.id === 823423);
 
 console.log(result3);
 
@@ -49,7 +45,14 @@ console.log(result3);
 
 const result4 = comments.findIndex(comment => comment.id === 823423);
 
+const newComs = [
+    ...comments.slice(0, result4),
+    ...comments.slice(result4 +1)
+];
+
+
 comments.splice(result4, 1);
 
 console.log(result4);
+console.log(newComs);
 console.log(comments);
